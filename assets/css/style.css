@@ -230,7 +230,7 @@ short code
   --gainsboro-bdr: #dadada;
   --snow-bdr: #f9f9f9;
   --primary-bdr: #223fdc;
-  --radical-red-bdr: #ff175c;
+  --radical-red-bdr: #7A1D76;
   --warning-bdr: #ffa100;
   --whisper-bdr: #eeeeee;
   --sky-blue-bdr: #00c2ff;
@@ -243,26 +243,26 @@ short code
   --visitor-image-bg: rgba(21, 37, 53, 0.8);
   --faq-shadow: rgba(0, 0, 0, 0.07);
   --v1-color: rgba(0, 0, 0, 0.02);
-  --gradient-primary: linear-gradient(53.28deg, #223fdc 4.8%, #ff175c 86.91%);
-  --gradient-secondary: linear-gradient(53.28deg, #B5BDBB 4.8%, #ECD2C4 86.91%);
+  --gradient-primary: linear-gradient(53.28deg, #7A1D76 4.8%, #bc19b4 86.91%);
+  --gradient-secondary: linear-gradient(53.28deg, #7A1D76 4.8%, #bc19b4 86.91%);
   --general-submenu-bg: linear-gradient(
     0deg,
-    #ff6b17 0%,
+    #7A1D76 0%,
     rgba(255, 23, 92, 0) 100%
   );
   --general-megamenu-bg: linear-gradient(
     53.28deg,
-    rgba(255, 161, 0, 0.8) 4.8%,
-    rgba(255, 23, 92, 0.8) 86.91%
+    #bc19b4 4.8%,
+    #7A1D76 86.91%
   );
   --transprent-submenu-bg: linear-gradient(
     0deg,
-    #0085ff 0%,
+    #7A1D76 0%,
     rgba(0, 27, 173, 0) 100%
   );
   --about-socail-bg: linear-gradient(
     189.76deg,
-    #ff175c 7.34%,
+    #bc19b4 7.34%,
     rgba(255, 23, 92, 0) 69.75%
   );
   --news-hover: linear-gradient(
@@ -283,7 +283,7 @@ short code
   --gradient-primary-btn: linear-gradient(to right, #ff175c, #223fdc, #ff175c);
   --gradient-secondary-btn: linear-gradient(
     to right,
-    #296678, #B5BDBB
+    #7A1D76, #bc19b4
   );
   --header-v1-sdo: rgba(0, 0, 0, 0.05);
   --landing-v2-hero-bg: #001bad;
@@ -7765,7 +7765,7 @@ short code
   justify-content: space-between;
 }
 .logo {
-  max-width: 160px;
+  max-width: 350px;
 }
 .logo a svg,
 .logo a img {
@@ -8701,7 +8701,7 @@ short code
   -webkit-text-fill-color: var(--radical-red-bdr);
 }
 .copyright {
-  background-color: var(--snow-bg);
+  /* background-color: var(--snow-bg); */
   text-align: center;
   padding: 20px 0px;
 }
@@ -9076,6 +9076,10 @@ short code
   grid-gap: 20px;
   position: relative;
 }
+.regiister-page .login-wrapper {
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+}
 .login-thumb {
   margin-left: -15px;
 }
@@ -9086,7 +9090,7 @@ short code
 .login-form {
   padding-top: 250px;
   padding-bottom: 100px;
-  max-width: 415px;
+  max-width: 480px;
   margin: 0 auto;
   position: relative;
 }
@@ -9105,7 +9109,7 @@ short code
   margin-top: 10px;
 }
 .login-input {
-  max-width: 380px;
+  max-width: 480px;
 }
 .login-input .single-form label {
   font-size: 18px;
