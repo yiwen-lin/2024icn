@@ -196,9 +196,9 @@ short code
   --white-txt: #fff;
   --gainsboro-txt: #dadada;
   --snow-txt: #f9f9f9;
-  --sky-blue-txt: #00c2ff;
-  --radical-red-txt: #ff175c;
-  --primary-txt: #223fdc;
+  --sky-blue-txt: #7A1D76;
+  --radical-red-txt: #e4b502;
+  --primary-txt: #bc19b4;
   --number-color: rgba(0, 0, 0, 0.02);
   --general-menu-a-color: rgba(255, 255, 255, 0.6);
   --texas-color: rgba(0, 133, 255, 0.4);
@@ -209,7 +209,7 @@ short code
   --gainsboro-bg: #dadada;
   --snow-bg: #f9f9f9;
   --primary-bg: #223fdc;
-  --radical-red-bg: #ff175c;
+  --radical-red-bg: #bc19b4;
   --warning-bg: #ffa100;
   --sky-blue-bg: #00c2ff;
   --w-light: #fafafa;
@@ -280,7 +280,7 @@ short code
     #ff6b17 0%,
     rgba(255, 23, 92, 0) 100%
   );
-  --gradient-primary-btn: linear-gradient(to right, #ff175c, #223fdc, #ff175c);
+  --gradient-primary-btn: linear-gradient(to right, #7A1D76, #bc19b4);
   --gradient-secondary-btn: linear-gradient(
     to right,
     #7A1D76, #bc19b4
@@ -1883,7 +1883,7 @@ short code
 }
 .loader-wrapper {
   --line-width: 5px;
-  --curtain-color: #f1faee;
+  --curtain-color: #f9e9ff;
   position: fixed;
   top: 0;
   left: 0;
@@ -3785,8 +3785,9 @@ short code
   text-align: center;
 }
 .home-v1-hero-content h2 {
-  font-size: 70px;
-  font-weight: 900;
+  font-size: 60px;
+  font-weight: 500;
+  letter-spacing: 2px;
   color: var(--white-txt);
   line-height: 1.3;
 }
@@ -3815,7 +3816,7 @@ short code
 }
 .home-v1-hero-content .button-group a {
   margin-right: 10px;
-  background: var(--radical-red-bg);
+  background: var(--black-bg);
 }
 .home-v1-hero-content .button-group .button {
   display: flex;
@@ -3894,7 +3895,8 @@ short code
     max-width: 70px;
   }
   .home-v1-hero-wrapper {
-    padding: 120px 0px 50px;
+    /* padding: 120px 0px 50px; */
+    padding: 40% 0px 0;
   }
   .home-v1-hero-wrapper .shape-1,
   .home-v1-hero-wrapper .shape-2,
@@ -7868,7 +7870,7 @@ short code
     display: none;
   }
   .logo {
-    max-width: 130px;
+    max-width: 220px;
   }
   .user-icon {
     display: block !important;
@@ -7991,8 +7993,8 @@ short code
   position: fixed;
   width: 100%;
   z-index: 99999999;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 }
 .header-general .header-general-wrapper .logo {
   margin-right: 70px;
@@ -8165,6 +8167,8 @@ short code
 @media screen and (max-width: 1350px) {
   .header-general .header-general-wrapper .logo {
     margin-right: 15px;
+    padding-left: 10px;
+    }
   }
   .header-general .header-general-wrapper .header-wrap {
     justify-content: flex-end;
@@ -9076,7 +9080,7 @@ short code
   grid-gap: 20px;
   position: relative;
 }
-.regiister-page .login-wrapper {
+.register-page .login-wrapper {
   grid-template-columns: 1fr;
   grid-gap: 0px;
 }
@@ -13908,4 +13912,15 @@ ol.ol-number {
 }
 ol.ol-number li {
   margin:10px auto;
+}
+
+
+/* index */
+.icn-title-img {
+  max-width:380px;
+}
+@media screen and (max-width: 767px) {
+  .icn-title-img {
+    max-width:300px;
+  }
 }

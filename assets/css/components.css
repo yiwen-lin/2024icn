@@ -73,8 +73,8 @@
 	--news-hover: linear-gradient(53.28deg, rgba(255, 161, 0, 0.03) 4.8%, rgba(255, 23, 92, 0.03) 86.91%);
 	--inner-page-v1-register-from-bg: linear-gradient(53.28deg, rgba(255, 161, 0, 0.7) 4.8%, rgba(255, 23, 92, 0.7) 86.91%);
 	--landing-gallery-overlay: linear-gradient(0deg, #FF6B17 0%, rgba(255, 23, 92, 0) 100%);
-	--gradient-primary-btn: linear-gradient(to right, #FF175C, #223FDC, #FF175C);
-	--gradient-secondary-btn: linear-gradient(to right, #296678, #B5BDBB, #ECD2C4);
+	--gradient-primary-btn: linear-gradient(to right, #7A1D76, #bc19b4);
+	--gradient-secondary-btn: linear-gradient(to right, #7A1D76, #bc19b4);
 	--header-v1-sdo: rgba(0, 0, 0, 0.05);
 	--landing-v2-hero-bg: #001BAD;
 	--landing-v2-section-bg-1: #001693;
