@@ -313,7 +313,7 @@ button: focus {
 }
 @media screen and (max-width: 767px) {
 	.btn-lg-space {
-	padding: 13px 25px
+	padding: 7px 15px
 }
 .btn {
 	font-size: 16px
