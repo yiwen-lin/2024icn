@@ -764,7 +764,7 @@ short code
   max-width: 60px;
 }
 .hamburger .burger {
-  filter: url(#gooeyness);
+  /* filter: url(#gooeyness); */
 }
 .hamburger .x {
   transform: scale(0);
@@ -9152,6 +9152,10 @@ short code
   padding: 10px 50px 10px 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.from-box.error .form-control {
+  border-color: red !important;
+}
 .login-input .single-form .from-box input:focus {
   border-color: var(--radical-red-bdr);
 }
@@ -13938,4 +13942,8 @@ ol.ol-number li {
 /* faq */
 .faq-body a {
  color: var(--primary-txt);
+}
+
+#nca_name_ipt {
+  display: none;
 }

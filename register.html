@@ -76,7 +76,7 @@
             <!-- <div class="login-thumb">
                 <img src="assets/img/thumb/register-thumb.png" alt="sign-up">
             </div> -->
-            <div class="login-form">
+            <form method="post" id="register" class="login-form">
                 <div class="from-title">
                     <h1 data-aos="fade-up" data-aos-delay="10"><span>ICN</span> Merger Workshop</h1>
                     <p>November 13-15, 2024</p>
@@ -88,151 +88,150 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>First Name *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="first_name" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Surname Name *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="surname_name" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Pronoun *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-control form-select required">
                                 <option selected disabled value=""></option>
-                                <option value="">He/Him</option>
-                                <option value="">She/her</option>
-                                <option value="">They/them​</option>
+                                <option value="male">He/Him</option>
+                                <option value="female">She/her</option>
+                                <option value="other">They/them​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Type of Participant​ *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select id="select_participant" class="form-control form-select required">
                                 <option selected disabled value="">​</option>
-                                <option value="">NCA (National Competition Authorities)</option>
-                                <option value="">NGA (Non Governmental Advisors)</option>
+                                <option value="participant_nca">NCA (National Competition Authorities)</option>
+                                <option value="participant_nga">NGA (Non Governmental Advisors)</option>
                          </select>
                         </div>
                     </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
+                    <div id="nca_name_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>If NCA, name of authority and person that invited you.​ *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="nca_name" class="required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Agency / Firm Name *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="agency_name" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Job Title / Position​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="job_title" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Address​​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="address" class="form-control required" type="text" placeholder="">
                             <i class="icofont-location-pin"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Country​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="country" class="form-control required" type="text" placeholder="">
                             <i class="icofont-globe"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>E-Mail *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="email" class="form-control required" type="text" placeholder="">
                             <i class="icofont-ui-email"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Password *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="password" class="form-control required" type="text" placeholder="">
                             <i class="icofont-key"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Confirm Password *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="comfirm_password" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Work Phone *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="work_phone" class="form-control required" type="text" placeholder="">
                             <i class="icofont-phone"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Mobil Phone​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input name="mobil_phone" type="text" placeholder="">
                             <i class="icofont-iphone"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Special Services:The TFTC will make every attempt to accommodate special needs. Please indicate any dietary or special needs.​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-control form-select required">
                                 <option selected disabled value="">​</option>
-                                <option value="">Vegetarian</option>
-                                <option value="">Others:</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="other">Others:</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please enroll the welcome reception (7/12  18:00-21:00) *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-control form-select required">
                                 <option selected disabled value="">​</option>
-                                <option value="">YES​</option>
-                                <option value="">NO​</option>
+                                <option value="yes">YES​</option>
+                                <option value="no">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Do you need a letter of invitation for visa purpose?(Please note these letters will be sent separately from your confirmation email)  *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-control form-select required">
                                 <option selected disabled value="">​</option>
-                                <option value="">YES​</option>
-                                <option value="">NO​</option>
+                                <option value="yes">YES​</option>
+                                <option value="no">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please select the social events that you will attend (optional) 7/15  14:30-18:00​​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select">
                                 <option selected disabled value="">​</option>
-                                <option>Taipei 101 (Observatory and Shopping)​</option>
-                                <option value="">National Palace Museum (A cultural and artistic tour)​</option>
-                                <option value="">Dadaocheng (A guided walking tour of traditional merchant streets.)​</option>
-                                <option value="">Not Participate​</option>
+                                <option value="social_01">Taipei 101 (Observatory and Shopping)​</option>
+                                <option value="social_02">National Palace Museum (A cultural and artistic tour)​</option>
+                                <option value="social_03">Dadaocheng (A guided walking tour of traditional merchant streets.)​</option>
+                                <option value="social_04">Not Participate​</option>
                          </select>
                         </div>
                     </div>
-                   
-                    <button class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600">Submit</button>
+                    <input type="submit" class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600" value="Submit">
                 </div>
                 <!-- <div class="login-footer" data-aos="fade-up" data-aos-delay="700">
                     <p>Already have account? <a href="login.html">Login</a></p>
                 </div> -->
-            </div>
+            </form>
         </div>
     </div>
 </section>
@@ -257,9 +256,84 @@
 <!-- Copy Right End Here -->
 <!-- Footer Area End Here -->
 <!-- Footer script-->
+
 <!-- Jquery call here-->
 <script src="assets/js/app.min.js"></script>
 <!-- custom script call here -->
 <script src="assets/js/scripts.js"></script>
+<script>
+    $(function(){
+        $('#select_participant').on('change', function(){
+            var selectVal = $(this).find(":selected").val();
+            if(selectVal == 'participant_nga') {
+                $('#nca_name_ipt').show();
+                $('#nca_name_ipt').find('input').addClass('form-control');
+            } else if (selectVal == 'participant_nca') {
+                $('#nca_name_ipt').hide();
+                $('#nca_name_ipt').fint('input').removeClass('form-control');
+            }
+        });
+    });
+</script>
+<script>
+    var form = document.getElementById('register');
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var checkValid = validatInputs();
+        if(checkValid){
+            form.submit();
+        }else{
+            e.preventDefault();
+        }
+    });
+    function validatInputs(){
+        var inputs = form.querySelectorAll('.form-control');
+        var valid = [];
+        var radioCheck = false;
+        var checkboxCheck = false;
+        inputs.forEach(function(i,j){
+            if(i.getAttribute('type')){
+                var checkAttr = i.getAttribute('type');
+            }else{
+                var checkAttr = i.tagName;
+            }
+            
+            switch(checkAttr){
+                case 'text':
+                    var _thisVal = i.value;
+                    if(_thisVal==''){
+                        i.parentNode.classList.add("error");
+                        valid.push(i.getAttribute('name'));
+                    }else{
+                        i.parentNode.classList.remove("error");
+                    }
+                break;
+                case 'select':
+                    if(i[select.selectedIndex].value==''){
+                        i.parentNode.classList.add("error");
+                        valid.push(i.getAttribute('name'));
+                    }else{
+                        i.parentNode.classList.remove("error");
+                    }
+                break;
+                default:
+                    if(i.value==''){
+                        i.parentNode.classList.add("error");
+                        valid.push(i.getAttribute('name'));
+                    }else{
+                        i.parentNode.classList.remove("error");
+                    }
+                break;
+            }
+        });
+
+        if(valid.length>0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+</script>
 </body>
 </html>
