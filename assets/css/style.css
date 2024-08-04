@@ -208,11 +208,11 @@ short code
   --white-bg: #fff;
   --gainsboro-bg: #dadada;
   --snow-bg: #f9f9f9;
-  --primary-bg: #223fdc;
+  --primary-bg: #bc19b4;
   --radical-red-bg: #bc19b4;
   --warning-bg: #ffa100;
   --sky-blue-bg: #00c2ff;
-  --w-light: #fafafa;
+  --w-light: #f2f1f1;
   --dark-btn-hvr-bg: #031120;
   --general-search-input-bg: rgba(255, 255, 255, 0.2);
   --foter-with-shape-bg: #01022c;
@@ -1857,7 +1857,7 @@ short code
 .home-v2-event-wrapper .single-event-v2:hover .event-v2-content .button a {
   background-color: var(--radical-red-bg);
 }
-.home-v2-event-wrapper .event-v2-content .title a i {
+.home-v2-event-wrapper .event-v2-content .title p i {
   background: unset;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
@@ -10570,7 +10570,7 @@ short code
 }
 .event-v2-wrapper {
   max-width: 1145px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
@@ -10593,8 +10593,8 @@ short code
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  font-size: 36px;
+  line-height: 1.3;
+  font-size: 20px;
   font-weight: 700;
   transition: all 0.3s ease-in-out;
 }
@@ -10606,8 +10606,11 @@ short code
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 95px 0px 45px;
+  /* padding: 95px 0px 45px; */
   text-align: center;
+}
+.event-v2-thumb img {
+
 }
 .event-v2-thumb .countdown-clock {
   max-width: 350px;
@@ -10667,16 +10670,18 @@ short code
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
+  margin-bottom: 20px;
 }
-.event-v2-content .title a {
+.event-v2-content .title p {
   font-size: 18px;
   line-height: 1.2;
   color: var(--body-clr-txt);
   display: flex;
   align-items: center;
   margin-top: 7px;
+  display:block;
 }
-.event-v2-content .title a i {
+.event-v2-content .title p i {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10696,12 +10701,12 @@ short code
     padding: 10px 10px 15px 10px;
   }
   .single-event-v2 .tag h2 {
-    width: 70px;
-    height: 70px;
-    font-size: 24px;
+    width: 66px;
+    height: 66px;
+    font-size: 16px;
   }
   .event-v2-thumb {
-    padding: 70px 0px 45px;
+    /* padding: 70px 0px 45px; */
   }
   .event-v2-thumb .countdown-clock {
     max-width: 290px;
@@ -10728,7 +10733,7 @@ short code
   .event-v2-content .title h4 {
     font-size: 20px;
   }
-  .event-v2-content .title a {
+  .event-v2-content .title p {
     font-size: 16px;
     margin-top: 5px;
   }
@@ -11663,31 +11668,32 @@ short code
   opacity: 1;
 }
 .schedule-v2-wrapper {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .single-schedule-v2-inner {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 .single-schedule-v2-inner:last-child {
   margin-bottom: 0;
 }
 .schedule-v2-profile {
-  max-width: 410px;
-  margin: 0 auto 60px;
+  /* max-width: 410px; */
+  margin: 0 auto 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .schedule-v2-profile .content {
   position: relative;
   margin-right: 20px;
 }
-.schedule-v2-profile .content h4 {
+.schedule-v2-profile .content h4,
+h4.date-title {
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
   color: var(--radical-red-txt);
-  padding-left: 20px;
+  /* padding-left: 20px; */
 }
 .schedule-v2-profile .content span {
   font-size: 150px;
@@ -11719,15 +11725,15 @@ short code
 }
 .schedule-v2-profile .profile .title span {
   display: block;
-  font-size: 14px;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.4;
   font-weight: 400;
   color: var(--font-clr-txt);
   margin-top: 3px;
 }
 .schedule-v2-content {
   max-width: 1003px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
 }
 .schedule-v2-content ul {
   position: relative;
@@ -11798,6 +11804,15 @@ short code
   font-weight: 500;
   line-height: 1.3;
 }
+.image-icon {
+  font-size: 28px;
+  margin: 0 20px;
+}
+.list-inner-content h5 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
 .list-inner-content p {
   font-size: 16px;
   line-height: 1.4;
@@ -11823,7 +11838,7 @@ short code
 }
 @media screen and (max-width: 575px) {
   .schedule-v2-top-button {
-    max-width: 326px;
+    max-width: 100%;
   }
   .schedule-v2-top-button .schedule-v2-tab-navs .nav-tabs .nav-link {
     font-size: 16px;
@@ -11833,17 +11848,18 @@ short code
     margin-top: 60px;
   }
   .single-schedule-v2-inner {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
   .schedule-v2-profile {
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   .schedule-v2-profile .content {
     margin-right: 0px;
     margin-bottom: 20px;
   }
-  .schedule-v2-profile .content h4 {
+  .schedule-v2-profile .content h4,
+  h4.date-title {
     font-size: 18px;
     padding-left: 10px;
   }
@@ -11867,7 +11883,7 @@ short code
   .schedule-v2-content ul li {
     text-align: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .schedule-v2-content ul li .dot {
     display: none;
@@ -13946,4 +13962,33 @@ ol.ol-number li {
 
 #nca_name_ipt {
   display: none;
+}
+
+/* agenda */
+.schedule-v2-top-button .nav {
+  justify-content: center;
+}
+.agenda-wrapper {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+  background: #fff;
+}
+.agenda-wrapper .inner-wrapper {
+  margin: 0 auto;
+  padding: 1.6em 0;
+}
+.agenda-wrapper tr {
+  vertical-align: top;
+}
+.agenda-wrapper table th,.agenda-wrapper table td {
+  border-bottom: 1px solid #eee;
+  padding: .825em 1.0999999999999999em;
+}
+.download-btn {
+  display:flex;
+  justify-content: center;
+}
+.download-btn i {
+  margin-right:10px;
 }
