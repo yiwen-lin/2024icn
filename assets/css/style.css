@@ -10759,6 +10759,14 @@ short code
   grid-template-columns: 1fr;
   /* grid-gap: 30px; */
 }
+.accommodation-page .contact-info-v1-wrapper {
+  max-width: 800px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+.accommodation-page .speacial-btn {
+  margin-top: 20px;
+}
 .single-contact-v1-info {
   position: relative;
   border: 1px solid var(--gainsboro-bdr);
@@ -10782,6 +10790,13 @@ short code
 }
 .single-contact-v1-info .info-option {
   margin-top: 30px;
+}
+.single-contact-v1-info .info-option ul {
+  list-style-type: square;
+  padding-left:20px;
+}
+.single-contact-v1-info .info-option li {
+  margin-bottom: 10px;
 }
 .single-contact-v1-info .info-option a {
   display: flex;
@@ -10915,6 +10930,11 @@ short code
   .contact-info-v1-wrapper {
     grid-template-columns: 1fr 1fr;
     max-width: 750px;
+  }
+  .accommodation-page .contact-info-v1-wrapper {
+    max-width: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
   }
 }
 @media screen and (max-width: 767px) {
