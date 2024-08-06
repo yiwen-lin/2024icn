@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="register-page">
-  
+
 
 <!-- Header Section -->
 <!-- Header Start Here -->
@@ -72,11 +72,11 @@
 <section class="login-area register-area s-pb-100">
     <div class="container-fluid">
         <div class="login-wrapper">
-           
+
             <!-- <div class="login-thumb">
                 <img src="assets/img/thumb/register-thumb.png" alt="sign-up">
             </div> -->
-            <div class="login-form">
+            <form method="post" id="register-editor" class="login-form">
                 <div class="from-title">
                     <h1 data-aos="fade-up" data-aos-delay="10" class="mb-20">Registration</h1>
                     <p>Email:<span>XXX@XXXX.XXX</span></p>
@@ -88,151 +88,133 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>First Name *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="first_name">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Surname Name *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="surname_name">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Pronoun *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select" required name="pronoun">
                                 <option selected disabled value=""></option>
-                                <option value="">He/Him</option>
-                                <option value="">She/her</option>
-                                <option value="">They/them​</option>
+                                <option value="male">He/Him</option>
+                                <option value="female">She/her</option>
+                                <option value="other">They/them​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Type of Participant​ *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select id="select_participant" class="form-select" required name="participant_type">
                                 <option selected disabled value="">​</option>
-                                <option value="">NCA (National Competition Authorities)</option>
-                                <option value="">NGA (Non Governmental Advisors)</option>
+                                <option value="participant_nca">NCA (National Competition Authorities)</option>
+                                <option value="participant_nga">NGA (Non Governmental Advisors)</option>
                          </select>
                         </div>
                     </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
+                    <div id="nca_name_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>If NCA, name of authority and person that invited you.​ *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="nca_name">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Agency / Firm Name *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="agency">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Job Title / Position​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control"  name="job_title">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Address​​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="address">
                             <i class="icofont-location-pin"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Country​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="country">
                             <i class="icofont-globe"></i>
-                        </div>
-                    </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>E-Mail *​​</label>
-                        <div class="from-box">
-                            <input type="text" placeholder="">
-                            <i class="icofont-ui-email"></i>
-                        </div>
-                    </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>Password *​​</label>
-                        <div class="from-box">
-                            <input type="text" placeholder="">
-                            <i class="icofont-key"></i>
-                        </div>
-                    </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>Confirm Password *​​</label>
-                        <div class="from-box">
-                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Work Phone *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="work_phone">
                             <i class="icofont-phone"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>Mobil Phone​</label>
+                        <label>Mobile Phone​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" class="form-control" name="mobile_phone">
                             <i class="icofont-iphone"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Special Services:The TFTC will make every attempt to accommodate special needs. Please indicate any dietary or special needs.​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select form-control" required name="special_services">
                                 <option selected disabled value="">​</option>
-                                <option value="">Vegetarian</option>
-                                <option value="">Others:</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="other">Others:</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please enroll the welcome reception (7/12  18:00-21:00) *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select form-control" required name="welcome_reception">
                                 <option selected disabled value="">​</option>
-                                <option value="">YES​</option>
-                                <option value="">NO​</option>
+                                <option value="1">YES​</option>
+                                <option value="0">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Do you need a letter of invitation for visa purpose?(Please note these letters will be sent separately from your confirmation email)  *​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select form-control" required name="invitation_letter">
                                 <option selected disabled value="">​</option>
-                                <option value="">YES​</option>
-                                <option value="">NO​</option>
+                                <option value="1">YES​</option>
+                                <option value="0">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please select the social events that you will attend (optional) 7/15  14:30-18:00​​</label>
                         <div class="from-box">
-                            <select class="form-select" required>
+                            <select class="form-select form-control" required name="social_events">
                                 <option selected disabled value="">​</option>
-                                <option>Taipei 101 (Observatory and Shopping)​</option>
-                                <option value="">National Palace Museum (A cultural and artistic tour)​</option>
-                                <option value="">Dadaocheng (A guided walking tour of traditional merchant streets.)​</option>
-                                <option value="">Not Participate​</option>
+                                <option value="social_01">Taipei 101 (Observatory and Shopping)​</option>
+                                <option value="social_02">National Palace Museum (A cultural and artistic tour)​</option>
+                                <option value="social_03">Dadaocheng (A guided walking tour of traditional merchant streets.)​</option>
+                                <option value="social_04">Not Participate​</option>
                          </select>
                         </div>
                     </div>
-                   
-                    <button class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600">Submit</button>
+                    <input type="hidden" name="email">
+                    <input type="hidden" name="password">
+
+                    <input type="submit" class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600" value="Submit">
                 </div>
                 <!-- <div class="login-footer" data-aos="fade-up" data-aos-delay="700">
                     <p>Already have account? <a href="login.html">Login</a></p>
                 </div> -->
-            </div>
+            </form>
         </div>
     </div>
 </section>
@@ -261,5 +243,184 @@
 <script src="assets/js/app.min.js"></script>
 <!-- custom script call here -->
 <script src="assets/js/scripts.js"></script>
+<script>
+    const REGISTER_EDITOR_API_URL = 'https://epass.icn2024merger.tw/api/update';
+    const BEARER_TOKEN = 'KU3mDVHXaLiVt2kjfGT0k69OoJf3CWH9z3zbugzlbcc0e25b';
+
+    $(function () {
+        $('#select_participant').on('change', function () {
+            let selectVal = $(this).find(":selected").val();
+            checkParticipantType(selectVal);
+        });
+
+        const LOGIN_URL = 'login.html';
+
+        let form = document.getElementById('register-editor');
+
+        setRegisterData();
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let checkValid = validateInputs();
+
+            if (checkValid) {
+                const form = e.target;
+                const formData = new FormData(form);
+
+                const data = {};
+                let email = '';
+
+                formData.forEach((value, key) => {
+                    if (key === 'email') {
+                        email = value;
+                    }
+                    if (['confirm_password'].indexOf(key) === -1) {
+                        data[key] = value;
+                    }
+                });
+
+                fetch(REGISTER_EDITOR_API_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${BEARER_TOKEN}`
+                    },
+                    body: JSON.stringify(data)
+                }).then((response) => {
+                    if (response.ok === true) {
+                        return response.json();
+                    } else if (response.status === 422) {
+                        return response.json().then(errorData => {
+                            let errorMessages = [];
+                            for (const [field, errors] of Object.entries(errorData.errors)) {
+                                errors.forEach(error => {
+                                    errorMessages.push(errors);
+                                    form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
+                                    console.error(`${field}: ${error}`);
+                                });
+                            }
+
+                            alert(errorMessages.join('\n'));
+
+                            focusValidateInput();
+
+                            throw new Error('Validation failed');
+                        });
+                    } else if (response.status === 404) {
+                        return response.json().then(response => {
+                            alert(response.message);
+
+                            throw new Error(response.message);
+                        });
+                    } else {
+                        return response.text().then(text => {
+                            throw new Error(response.statusText + ": " + text);
+                        });
+                    }
+                }).then((responseData) => {
+                    alert('Success');
+                    console.log('Success', responseData);
+                }).catch(error => {
+                    console.error('Fetch error:', error);
+                }).finally(() => {
+                });
+            } else {
+                alert('You have required fields that are not filled out. Please complete them before submitting.');
+            }
+        });
+
+        function setRegisterData() {
+            let registerData = localStorage.getItem('registerData');
+            if (registerData === null) {
+                window.location.href = LOGIN_URL;
+            }
+
+            registerData = JSON.parse(localStorage.getItem('registerData'));
+
+            for (const [field, data] of Object.entries(registerData)) {
+                let targetElement = form.querySelector(`[name="${field}"]`);
+                if (targetElement !== null) {
+                    targetElement.value = data;
+                    if (field === 'participant_type') {
+                        checkParticipantType(data);
+                    }
+                }
+            }
+
+            localStorage.removeItem('registerData');
+        }
+
+        function validateInputs() {
+            var inputs = form.querySelectorAll('.form-control');
+            var valid = [];
+            var radioCheck = false;
+            var checkboxCheck = false;
+            inputs.forEach(function (i, j) {
+                var checkAttr = i.tagName;
+                if(i.getAttribute('type')){
+                    checkAttr = i.getAttribute('type');
+                }
+
+                switch(checkAttr){
+                    case 'text':
+                        var _thisVal = i.value;
+                        if (_thisVal === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        }else{
+                            i.parentNode.classList.remove("error");
+                        }
+                        break;
+                    case 'select':
+                        if (i[select.selectedIndex].value === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        } else {
+                            i.parentNode.classList.remove("error");
+                        }
+                        break;
+                    default:
+                        if (i.value === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        } else {
+                            i.parentNode.classList.remove("error");
+                        }
+                        break;
+                }
+            });
+
+            if (valid.length > 0) {
+                focusValidateInput();
+
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function focusValidateInput() {
+            const targetTop = form.querySelector(`.error`).parentNode.offsetTop;
+            const header = document.querySelector(`header`).offsetHeight;
+            const scrollTop = targetTop - header - 200;
+            window.scrollTo({
+                top: scrollTop > 0 ? scrollTop : 0,
+                behavior: "smooth",
+            });
+        }
+
+        function checkParticipantType(selectVal) {
+            if (selectVal === 'participant_nca') {
+                $('#nca_name_ipt').show();
+                $('#nca_name_ipt').find('input').addClass('form-control');
+            } else if (selectVal === 'participant_nga') {
+                $('#nca_name_ipt').hide();
+                $('#nca_name_ipt').find('input').removeClass('form-control');
+            }
+        }
+    });
+</script>
 </body>
 </html>

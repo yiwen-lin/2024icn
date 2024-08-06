@@ -100,7 +100,7 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Pronoun *​</label>
                         <div class="from-box">
-                            <select class="form-control form-select required">
+                            <select class="form-control form-select required" name="pronoun">
                                 <option selected disabled value=""></option>
                                 <option value="male">He/Him</option>
                                 <option value="female">She/her</option>
@@ -111,7 +111,7 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Type of Participant​ *​</label>
                         <div class="from-box">
-                            <select id="select_participant" class="form-control form-select required">
+                            <select id="select_participant" class="form-control form-select required" name="participant_type">
                                 <option selected disabled value="">​</option>
                                 <option value="participant_nca">NCA (National Competition Authorities)</option>
                                 <option value="participant_nga">NGA (Non Governmental Advisors)</option>
@@ -127,7 +127,7 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Agency / Firm Name *​​</label>
                         <div class="from-box">
-                            <input name="agency_name" class="form-control required" type="text" placeholder="">
+                            <input name="agency" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -167,7 +167,7 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Confirm Password *​​</label>
                         <div class="from-box">
-                            <input name="comfirm_password" class="form-control required" type="text" placeholder="">
+                            <input name="confirm_password" class="form-control required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -178,16 +178,16 @@
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>Mobil Phone​</label>
+                        <label>Mobile Phone​</label>
                         <div class="from-box">
-                            <input name="mobil_phone" type="text" placeholder="">
+                            <input name="mobile_phone" type="text" placeholder="">
                             <i class="icofont-iphone"></i>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Special Services:The TFTC will make every attempt to accommodate special needs. Please indicate any dietary or special needs.​</label>
                         <div class="from-box">
-                            <select class="form-control form-select required">
+                            <select class="form-control form-select required" name="special_services">
                                 <option selected disabled value="">​</option>
                                 <option value="vegetarian">Vegetarian</option>
                                 <option value="other">Others:</option>
@@ -197,27 +197,27 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please enroll the welcome reception (7/12  18:00-21:00) *​</label>
                         <div class="from-box">
-                            <select class="form-control form-select required">
+                            <select class="form-control form-select required" name="welcome_reception">
                                 <option selected disabled value="">​</option>
-                                <option value="yes">YES​</option>
-                                <option value="no">NO​</option>
+                                <option value="1">YES​</option>
+                                <option value="0">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Do you need a letter of invitation for visa purpose?(Please note these letters will be sent separately from your confirmation email)  *​</label>
                         <div class="from-box">
-                            <select class="form-control form-select required">
+                            <select class="form-control form-select required" name="invitation_letter">
                                 <option selected disabled value="">​</option>
-                                <option value="yes">YES​</option>
-                                <option value="no">NO​</option>
+                                <option value="1">YES​</option>
+                                <option value="0">NO​</option>
                          </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please select the social events that you will attend (optional) 7/15  14:30-18:00​​</label>
                         <div class="from-box">
-                            <select class="form-select">
+                            <select class="form-select" name="social_events">
                                 <option selected disabled value="">​</option>
                                 <option value="social_01">Taipei 101 (Observatory and Shopping)​</option>
                                 <option value="social_02">National Palace Museum (A cultural and artistic tour)​</option>
@@ -262,79 +262,164 @@
 <!-- custom script call here -->
 <script src="assets/js/scripts.js"></script>
 <script>
-    $(function(){
-        $('#select_participant').on('change', function(){
-            var selectVal = $(this).find(":selected").val();
-            if(selectVal == 'participant_nga') {
+    const REGISTER_API_URL = 'https://epass.icn2024merger.tw/api/register';
+    const BEARER_TOKEN = 'KU3mDVHXaLiVt2kjfGT0k69OoJf3CWH9z3zbugzlbcc0e25b';
+
+    $(function () {
+        $('#select_participant').on('change', function () {
+            let selectVal = $(this).find(":selected").val();
+            checkParticipantType(selectVal);
+        });
+
+        let form = document.getElementById('register');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let checkValid = validateInputs();
+
+            if (checkValid) {
+                const form = e.target;
+                const formData = new FormData(form);
+
+                const data = {};
+
+                formData.forEach((value, key) => {
+                    if (['confirm_password'].indexOf(key) === -1) {
+                        data[key] = value;
+                    }
+                });
+
+                form.querySelectorAll(`[name]`).forEach((inputElement) => {
+                    inputElement.parentNode.classList.remove("error");
+                });
+
+                fetch(REGISTER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${BEARER_TOKEN}`
+                    },
+                    body: JSON.stringify(data)
+                }).then((response) => {
+                    if (response.ok === true) {
+                        return response.json();
+                    } else if (response.status === 422) {
+                        return response.json().then(errorData => {
+                            let errorMessages = [];
+                            for (const [field, errors] of Object.entries(errorData.errors)) {
+                                errors.forEach(error => {
+                                    errorMessages.push(errors);
+                                    form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
+                                    console.error(`${field}: ${error}`);
+                                });
+                            }
+
+                            alert(errorMessages.join('\n'));
+
+                            focusValidateInput();
+
+                            throw new Error('Validation failed');
+                        });
+                    } else {
+                        return response.text().then(text => {
+                            throw new Error(response.statusText + ": " + text);
+                        });
+                    }
+                }).then((responseData) => {
+                    alert('Success');
+                    console.log('Success', responseData);
+                }).catch(error => {
+                    console.error('Fetch error:', error);
+                }).finally(() => {
+                });
+            } else {
+                alert('You have required fields that are not filled out. Please complete them before submitting.')
+            }
+        });
+        function validateInputs() {
+            var inputs = form.querySelectorAll('.form-control');
+            var valid = [];
+            var radioCheck = false;
+            var checkboxCheck = false;
+            inputs.forEach(function (i, j) {
+                var checkAttr = i.tagName;
+                if(i.getAttribute('type')){
+                    checkAttr = i.getAttribute('type');
+                }
+
+                switch(checkAttr){
+                    case 'text':
+                        var _thisVal = i.value;
+                        if (_thisVal === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        }else{
+                            i.parentNode.classList.remove("error");
+                        }
+                    break;
+                    case 'select':
+                        if (i[select.selectedIndex].value === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        } else {
+                            i.parentNode.classList.remove("error");
+                        }
+                    break;
+                    default:
+                        if (i.value === '') {
+                            i.parentNode.classList.add("error");
+                            valid.push(i.getAttribute('name'));
+                        } else {
+                            i.parentNode.classList.remove("error");
+                        }
+                    break;
+                }
+            });
+
+            let password = form.querySelector('[name="password"]');
+            let confirmPassword = form.querySelector('[name="confirm_password"]');
+
+            if (password.value !== confirmPassword.value) {
+                password.parentNode.classList.add("error");
+                confirmPassword.parentNode.classList.add("error");
+                valid.push(password.getAttribute('name'));
+                valid.push(confirmPassword.getAttribute('name'));
+            } else {
+                password.parentNode.classList.remove("error");
+                confirmPassword.parentNode.classList.remove("error");
+            }
+
+            if (valid.length > 0) {
+                focusValidateInput();
+
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function focusValidateInput() {
+            const targetTop = form.querySelector(`.error`).parentNode.offsetTop;
+            const header = document.querySelector(`header`).offsetHeight;
+            const scrollTop = targetTop - header - 200;
+            window.scrollTo({
+                top: scrollTop > 0 ? scrollTop : 0,
+                behavior: "smooth",
+            });
+        }
+
+        function checkParticipantType(selectVal) {
+            if (selectVal === 'participant_nca') {
                 $('#nca_name_ipt').show();
                 $('#nca_name_ipt').find('input').addClass('form-control');
-            } else if (selectVal == 'participant_nca') {
+            } else if (selectVal === 'participant_nga') {
                 $('#nca_name_ipt').hide();
-                $('#nca_name_ipt').fint('input').removeClass('form-control');
+                $('#nca_name_ipt').find('input').removeClass('form-control');
             }
-        });
-    });
-</script>
-<script>
-    var form = document.getElementById('register');
-    form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var checkValid = validatInputs();
-        if(checkValid){
-            form.submit();
-        }else{
-            e.preventDefault();
-            alert('You have required fields that are not filled out. Please complete them before submitting.')
         }
     });
-    function validatInputs(){
-        var inputs = form.querySelectorAll('.form-control');
-        var valid = [];
-        var radioCheck = false;
-        var checkboxCheck = false;
-        inputs.forEach(function(i,j){
-            if(i.getAttribute('type')){
-                var checkAttr = i.getAttribute('type');
-            }else{
-                var checkAttr = i.tagName;
-            }
-            
-            switch(checkAttr){
-                case 'text':
-                    var _thisVal = i.value;
-                    if(_thisVal==''){
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    }else{
-                        i.parentNode.classList.remove("error");
-                    }
-                break;
-                case 'select':
-                    if(i[select.selectedIndex].value==''){
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    }else{
-                        i.parentNode.classList.remove("error");
-                    }
-                break;
-                default:
-                    if(i.value==''){
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    }else{
-                        i.parentNode.classList.remove("error");
-                    }
-                break;
-            }
-        });
-
-        if(valid.length>0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
 </script>
 </body>
 </html>
