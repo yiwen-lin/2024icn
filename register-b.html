@@ -79,9 +79,8 @@
             <form method="post" id="register-editor" class="login-form">
                 <div class="from-title">
                     <h1 data-aos="fade-up" data-aos-delay="10" class="mb-20">Registration</h1>
-                    <p>Email:<span>XXX@XXXX.XXX</span></p>
-                    <p  class="mb-20">Password:<span>ＯＯＯＯＯＯ</span></p>
-                    <button class="btn btn-lg-space btn-bg-g-primary" data-aos="fade-up" data-aos-delay="600">Modify</button>
+                    <p>Email:<span id="email">XXX@XXXX.XXX</span></p>
+                    <p  class="mb-20">Password:<span id="password">ＯＯＯＯＯＯ</span></p>
                 </div>
 
                 <div class="login-input">
@@ -345,6 +344,11 @@
                     targetElement.value = data;
                     if (field === 'participant_type') {
                         checkParticipantType(data);
+                    }
+
+                    if (['email', 'password'].indexOf(field) !== -1) {
+                        let setTextElementTarget = document.getElementById(field);
+                        setTextElementTarget.textContent = data;
                     }
                 }
             }
