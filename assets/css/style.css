@@ -9297,6 +9297,11 @@ short code
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.gradient-text {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @media screen and (max-width: 991px) {
   .register-area .login-form {
     padding-top: 140px;
