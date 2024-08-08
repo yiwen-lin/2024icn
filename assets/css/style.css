@@ -13993,6 +13993,10 @@ ol.ol-number li {
   display: none;
 }
 
+#other_diet_ipt {
+  display: none;
+}
+
 /* agenda */
 .schedule-v2-top-button .nav {
   justify-content: center;

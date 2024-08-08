@@ -186,11 +186,17 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Special Services:The TFTC will make every attempt to accommodate special needs. Please indicate any dietary or special needs.​</label>
                         <div class="from-box">
-                            <select class="form-control form-select required" name="special_services">
+                            <select id="select_diet" class="form-control form-select required" name="special_services">
                                 <option selected disabled value="">​</option>
                                 <option value="vegetarian">Vegetarian</option>
                                 <option value="other">Others:</option>
                             </select>
+                        </div>
+                    </div>
+                    <div id="other_diet_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
+                        <label>If other, answer here.​ *</label>
+                        <div class="from-box">
+                            <input name="" class="required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -268,6 +274,11 @@
         $('#select_participant').on('change', function () {
             let selectVal = $(this).find(":selected").val();
             checkParticipantType(selectVal);
+        });
+
+        $('#select_diet').on('change', function () {
+            let selectVal = $(this).find(":selected").val();
+            checkDietType(selectVal);
         });
 
         let form = document.getElementById('register');
@@ -416,6 +427,16 @@
             } else if (selectVal === 'participant_nga') {
                 $('#nca_name_ipt').hide();
                 $('#nca_name_ipt').find('input').removeClass('form-control');
+            }
+        }
+
+        function checkDietType(selectVal) {
+            if (selectVal === 'other') {
+                $('#other_diet_ipt').show();
+                $('#other_diet_ipt').find('input').addClass('form-control');
+            } else if (selectVal === 'vegetarian') {
+                $('#other_diet_ipt').hide();
+                $('#other_diet_ipt').find('input').removeClass('form-control');
             }
         }
     });
