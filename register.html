@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="register-page">
-  
+
 
 <!-- Header Section -->
 <!-- Header Start Here -->
@@ -49,16 +49,16 @@
                         <div class="plates">
                             <!--  onclick="this.classList.toggle('active')" -->
                             <div class="plate plate5">
-                              <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-                                <path class="line line1" d="M 30,35 H 70 " />
-                                <path class="line line2" d="M 50,50 H 30 L 34,32" />
-                                <path class="line line3" d="M 50,50 H 70 L 66,68" />
-                                <path class="line line4" d="M 30,65 H 70 " />
-                              </svg>
-                              <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-                                <path class="line" d="M 34,32 L 66,68" />
-                                <path class="line" d="M 66,32 L 34,68" />
-                              </svg>
+                                <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                                    <path class="line line1" d="M 30,35 H 70 " />
+                                    <path class="line line2" d="M 50,50 H 30 L 34,32" />
+                                    <path class="line line3" d="M 50,50 H 70 L 66,68" />
+                                    <path class="line line4" d="M 30,65 H 70 " />
+                                </svg>
+                                <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                                    <path class="line" d="M 34,32 L 66,68" />
+                                    <path class="line" d="M 66,32 L 34,68" />
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 <section class="login-area register-area s-pb-100">
     <div class="container-fluid">
         <div class="login-wrapper">
-           
+
             <!-- <div class="login-thumb">
                 <img src="assets/img/thumb/register-thumb.png" alt="sign-up">
             </div> -->
@@ -105,7 +105,7 @@
                                 <option value="male">He/Him</option>
                                 <option value="female">She/her</option>
                                 <option value="other">They/them​</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -115,7 +115,7 @@
                                 <option selected disabled value="">​</option>
                                 <option value="participant_nca">NCA (National Competition Authorities)</option>
                                 <option value="participant_nga">NGA (Non Governmental Advisors)</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <div id="nca_name_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -187,15 +187,11 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Special Services:The TFTC will make every attempt to accommodate special needs. Please indicate any dietary or special needs.​</label>
                         <div class="from-box">
-<<<<<<< HEAD
-                            <select class="form-control form-select required" name="speical_services">
-=======
                             <select class="form-control form-select required" name="special_services">
->>>>>>> 6490a648617f77b4c9152de8b215e13cf8cde9fc
                                 <option selected disabled value="">​</option>
                                 <option value="vegetarian">Vegetarian</option>
                                 <option value="other">Others:</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -205,7 +201,7 @@
                                 <option selected disabled value="">​</option>
                                 <option value="1">YES​</option>
                                 <option value="0">NO​</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -215,7 +211,7 @@
                                 <option selected disabled value="">​</option>
                                 <option value="1">YES​</option>
                                 <option value="0">NO​</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -227,7 +223,7 @@
                                 <option value="social_02">National Palace Museum (A cultural and artistic tour)​</option>
                                 <option value="social_03">Dadaocheng (A guided walking tour of traditional merchant streets.)​</option>
                                 <option value="social_04">Not Participate​</option>
-                         </select>
+                            </select>
                         </div>
                     </div>
                     <input type="submit" class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600" value="Submit">
@@ -244,12 +240,12 @@
 <!-- Footer Area Start Here -->
 <footer class="primary-footer-area py-70 py-md-40 bg-dark secondary-footer">
     <div class="container">
-           <div class="footer-items">
+        <div class="footer-items">
             <div class="footer-contact">
                 <h4 class="footer-title">Contact Us</h4>
                 <a href="mailto:info.2024icn.merger@ftc.gov.tw"><i class="icofont-ui-message"></i>info.2024icn.merger@ftc.gov.tw</a>
             </div>
-           </div>
+        </div>
     </div>
 </footer>
 <!-- Footer Area End Here -->
@@ -266,125 +262,6 @@
 <!-- custom script call here -->
 <script src="assets/js/scripts.js"></script>
 <script>
-<<<<<<< HEAD
-    $(function(){
-        $('#select_participant').on('change', function(){
-            var selectVal = $(this).find(":selected").val();
-            if(selectVal == 'participant_nga') {
-                $('#nca_name_ipt').show();
-                $('#nca_name_ipt').find('input').addClass('form-control');
-            } else if (selectVal == 'participant_nca') {
-                $('#nca_name_ipt').hide();
-                $('#nca_name_ipt').find('input').removeClass('form-control');
-            }
-        });
-    });
-</script>
-<script>
-    var form = document.getElementById('register');
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var checkValid = validateInputs();
-        if (checkValid) {
-            // use fetch to save
-            const REGISTER_API_URL = 'https://epass.icn2024merger.tw/api/register';
-            const REGISTER_API_BEARER_TOKEN = 'KU3mDVHXaLiVt2kjfGT0k69OoJf3CWH9z3zbugzlbcc0e25b';
-
-            const form = e.target;
-            const formData = new FormData(form);
-
-            const data = {};
-
-            formData.forEach((value, key) => {
-                if (['confirm_password'].indexOf(key) === -1) {
-                    data[key] = value;
-                }
-            });
-
-            form.querySelectorAll(`[name]`).forEach((inputElement) => {
-                inputElement.parentNode.classList.remove("error");
-            });
-
-            fetch(REGISTER_API_URL, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${REGISTER_API_BEARER_TOKEN}`
-                },
-                body: JSON.stringify(data)
-            }).then((response) => {
-                if (response.ok === true) {
-                    return response.json();
-                } else if (response.status === 422) {
-                    return response.json().then(errorData => {
-                        let errorMessages = [];
-                        for (const [field, errors] of Object.entries(errorData.errors)) {
-                            errors.forEach(error => {
-                                errorMessages.push(errors);
-                                form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
-                                console.error(`${field}: ${error}`);
-                            });
-                        }
-
-                        alert(errorMessages.join('\n'));
-
-                        focusValidateInput();
-
-                        throw new Error('Validation failed');
-                    });
-                } else {
-                    return response.text().then(text => {
-                        throw new Error(response.statusText + ": " + text);
-                    });
-                }
-            }).then((responseData) => {
-                alert('Success');
-                console.log('Success', responseData);
-            }).catch(error => {
-                console.error('Fetch error:', error);
-            }).finally(() => {
-            });
-        } else {
-            alert('You have required fields that are not filled out. Please complete them before submitting.')
-        }
-    });
-    function validateInputs() {
-        var inputs = form.querySelectorAll('.form-control');
-        var valid = [];
-        var radioCheck = false;
-        var checkboxCheck = false;
-        inputs.forEach(function (i, j) {
-            var checkAttr = i.tagName;
-            if(i.getAttribute('type')){
-                checkAttr = i.getAttribute('type');
-            }
-
-            switch(checkAttr){
-                case 'text':
-                    var _thisVal = i.value;
-                    if (_thisVal === '') {
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    }else{
-                        i.parentNode.classList.remove("error");
-                    }
-                break;
-                case 'select':
-                    if (i[select.selectedIndex].value === '') {
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    } else {
-                        i.parentNode.classList.remove("error");
-                    }
-                break;
-                default:
-                    if (i.value === '') {
-                        i.parentNode.classList.add("error");
-                        valid.push(i.getAttribute('name'));
-                    } else {
-                        i.parentNode.classList.remove("error");
-=======
     const REGISTER_API_URL = 'https://epass.icn2024merger.tw/api/register';
     const BEARER_TOKEN = 'KU3mDVHXaLiVt2kjfGT0k69OoJf3CWH9z3zbugzlbcc0e25b';
 
@@ -449,7 +326,6 @@
                         return response.text().then(text => {
                             throw new Error(response.statusText + ": " + text);
                         });
->>>>>>> 6490a648617f77b4c9152de8b215e13cf8cde9fc
                     }
                 }).then((responseData) => {
                     alert('Success');
@@ -482,7 +358,7 @@
                         }else{
                             i.parentNode.classList.remove("error");
                         }
-                    break;
+                        break;
                     case 'select':
                         if (i[select.selectedIndex].value === '') {
                             i.parentNode.classList.add("error");
@@ -490,7 +366,7 @@
                         } else {
                             i.parentNode.classList.remove("error");
                         }
-                    break;
+                        break;
                     default:
                         if (i.value === '') {
                             i.parentNode.classList.add("error");
@@ -498,7 +374,7 @@
                         } else {
                             i.parentNode.classList.remove("error");
                         }
-                    break;
+                        break;
                 }
             });
 
@@ -518,27 +394,6 @@
             if (valid.length > 0) {
                 focusValidateInput();
 
-<<<<<<< HEAD
-        let password = form.querySelector('[name="password"]');
-        let confirmPassword = form.querySelector('[name="confirm_password"]');
-
-        if (password.value !== confirmPassword.value) {
-            password.parentNode.classList.add("error");
-            confirmPassword.parentNode.classList.add("error");
-            valid.push(password.getAttribute('name'));
-            valid.push(confirmPassword.getAttribute('name'));
-        } else {
-            password.parentNode.classList.remove("error");
-            confirmPassword.parentNode.classList.remove("error");
-        }
-
-        if (valid.length > 0) {
-            focusValidateInput();
-
-            return false;
-        } else {
-            return true;
-=======
                 return false;
             } else {
                 return true;
@@ -553,20 +408,8 @@
                 top: scrollTop > 0 ? scrollTop : 0,
                 behavior: "smooth",
             });
->>>>>>> 6490a648617f77b4c9152de8b215e13cf8cde9fc
         }
 
-<<<<<<< HEAD
-    function focusValidateInput() {
-        const targetTop = form.querySelector(`.error`).parentNode.offsetTop;
-        const header = document.querySelector(`header`).offsetHeight;
-        const scrollTop = targetTop - header - 200;
-        window.scrollTo({
-            top: scrollTop > 0 ? scrollTop : 0,
-            behavior: "smooth",
-        });
-    }
-=======
         function checkParticipantType(selectVal) {
             if (selectVal === 'participant_nca') {
                 $('#nca_name_ipt').show();
@@ -577,7 +420,6 @@
             }
         }
     });
->>>>>>> 6490a648617f77b4c9152de8b215e13cf8cde9fc
 </script>
 </body>
 </html>
