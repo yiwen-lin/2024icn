@@ -99,28 +99,38 @@
                     <button class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="500" type="submit">Login <i class="icofont-long-arrow-right"></i></button>
                 </div>
                 <div class="login-footer" data-aos="fade-up" data-aos-delay="600">
-                    <p><a href="register.html">Forget the password？</a></p>
+                    <!-- 新增popup btn-->
+                    <p><a href="#0" class="cd-popup-trigger">Forget the password?</a></p> 
                 </div>
-            </form>
+            </form>         
 
-            <form method="post" id="forgot-password" class="login-form">
-                <div class="from-title">
-                    <h1 data-aos="fade-up" data-aos-delay="10">Forget the password？</h1>
-                </div>
-                <div class="login-input">
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>Your Email</label>
-                        <div class="from-box">
-                            <input type="email" placeholder="Enter your email address" class="form-control" name="email">
-                            <i class="icofont-ui-message"></i>
-                        </div>
-                    </div>
-                    <button class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="500" type="submit">Get the password？ <i class="icofont-long-arrow-right"></i></button>
-                </div>
-            </form>
+            
         </div>
     </div>
 </section>
+
+<!-- 新增popup start -->
+<div class="cd-popup" role="alert">
+	<div class="cd-popup-container">
+        <form method="post" id="forgot-password" class="login-form-popup">
+            <div class="from-title">
+                <h5 data-aos="fade-up" data-aos-delay="10" class="mb-30">Forget the password？</h5>
+            </div>
+            <div class="login-input">
+                <div class="single-form mb-30" data-aos="fade-up" data-aos-delay="200">
+                    <label>Your Email</label>
+                    <div class="from-box">
+                        <input type="email" placeholder="Enter your email address" class="form-control" name="email">
+                        <i class="icofont-ui-message"></i>
+                    </div>
+                </div>
+                <button class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="500" type="submit">Get the password</button>
+            </div>
+        </form>
+		<a href="#0" class="cd-popup-close img-replace">Close</a>
+	</div>
+</div>
+<!-- 新增popup end-->
 
 <!-- Footer Area Start Here -->
 <footer class="primary-footer-area py-70 py-md-40 bg-dark secondary-footer">
