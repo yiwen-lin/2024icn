@@ -429,7 +429,8 @@ short code
   padding: 70px 0px;
 }
 .bg-snow {
-  background: var(--snow-bg);
+  /* background: var(--snow-bg); */
+  background-image: url(../img/thumb/bg-snow.jpg);
 }
 .bg-dark {
   background: var(--font-clr-bg) !important;
@@ -2001,6 +2002,7 @@ short code
 .banner-content h3 {
   line-height: 1.2;
   font-weight: 500;
+  color: var(--radical-red-txt);
 }
 .line {
   display: flex;
