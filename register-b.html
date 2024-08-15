@@ -144,7 +144,7 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Jurisdiction​ *​​</label>
                         <div class="from-box">
-                            <input type="text" placeholder="" class="form-control" name="Jurisdiction">
+                            <input type="text" placeholder="" class="form-control" name="country">
                             <i class="icofont-globe"></i>
                         </div>
                     </div>
@@ -210,9 +210,9 @@
                             <input name="special_services_others" class="required" type="text" placeholder="">
                         </div>
                     </div>
-                    <input type="hidden" name="email">
-                    <input type="hidden" name="password">
-                    <input type="submit" class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600" value="Submit">
+<!--                    <input type="hidden" name="email">-->
+<!--                    <input type="hidden" name="password">-->
+<!--                    <input type="submit" class="btn btn-lg-space" data-aos="fade-up" data-aos-delay="600" value="Submit">-->
                 </div>
                 <!-- <div class="login-footer" data-aos="fade-up" data-aos-delay="700">
                     <p>Already have account? <a href="login.html">Login</a></p>
@@ -267,77 +267,77 @@
 
         setRegisterData();
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            let checkValid = validateInputs();
-
-            if (checkValid) {
-                const form = e.target;
-                const formData = new FormData(form);
-
-                const data = {};
-                let email = '';
-
-                formData.forEach((value, key) => {
-                    if (key === 'email') {
-                        email = value;
-                    }
-                    if (['confirm_password'].indexOf(key) === -1) {
-                        data[key] = value;
-                    }
-                });
-
-                fetch(REGISTER_EDITOR_API_URL, {
-                    method: 'PUT',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${BEARER_TOKEN}`
-                    },
-                    body: JSON.stringify(data)
-                }).then((response) => {
-                    if (response.ok === true) {
-                        return response.json();
-                    } else if (response.status === 422) {
-                        return response.json().then(errorData => {
-                            let errorMessages = [];
-                            for (const [field, errors] of Object.entries(errorData.errors)) {
-                                errors.forEach(error => {
-                                    errorMessages.push(errors);
-                                    form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
-                                    console.error(`${field}: ${error}`);
-                                });
-                            }
-
-                            alert(errorMessages.join('\n'));
-
-                            focusValidateInput();
-
-                            throw new Error('Validation failed');
-                        });
-                    } else if (response.status === 404) {
-                        return response.json().then(response => {
-                            alert(response.message);
-
-                            throw new Error(response.message);
-                        });
-                    } else {
-                        return response.text().then(text => {
-                            throw new Error(response.statusText + ": " + text);
-                        });
-                    }
-                }).then((responseData) => {
-                    alert('Success');
-                    console.log('Success', responseData);
-                }).catch(error => {
-                    console.error('Fetch error:', error);
-                }).finally(() => {
-                });
-            } else {
-                alert('You have required fields that are not filled out. Please complete them before submitting.');
-            }
-        });
+        // form.addEventListener('submit', function (e) {
+        //     e.preventDefault();
+        //
+        //     let checkValid = validateInputs();
+        //
+        //     if (checkValid) {
+        //         const form = e.target;
+        //         const formData = new FormData(form);
+        //
+        //         const data = {};
+        //         let email = '';
+        //
+        //         formData.forEach((value, key) => {
+        //             if (key === 'email') {
+        //                 email = value;
+        //             }
+        //             if (['confirm_password'].indexOf(key) === -1) {
+        //                 data[key] = value;
+        //             }
+        //         });
+        //
+        //         fetch(REGISTER_EDITOR_API_URL, {
+        //             method: 'PUT',
+        //             headers: {
+        //                 'Accept': 'application/json',
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': `Bearer ${BEARER_TOKEN}`
+        //             },
+        //             body: JSON.stringify(data)
+        //         }).then((response) => {
+        //             if (response.ok === true) {
+        //                 return response.json();
+        //             } else if (response.status === 422) {
+        //                 return response.json().then(errorData => {
+        //                     let errorMessages = [];
+        //                     for (const [field, errors] of Object.entries(errorData.errors)) {
+        //                         errors.forEach(error => {
+        //                             errorMessages.push(errors);
+        //                             form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
+        //                             console.error(`${field}: ${error}`);
+        //                         });
+        //                     }
+        //
+        //                     alert(errorMessages.join('\n'));
+        //
+        //                     focusValidateInput();
+        //
+        //                     throw new Error('Validation failed');
+        //                 });
+        //             } else if (response.status === 404) {
+        //                 return response.json().then(response => {
+        //                     alert(response.message);
+        //
+        //                     throw new Error(response.message);
+        //                 });
+        //             } else {
+        //                 return response.text().then(text => {
+        //                     throw new Error(response.statusText + ": " + text);
+        //                 });
+        //             }
+        //         }).then((responseData) => {
+        //             alert('Success');
+        //             console.log('Success', responseData);
+        //         }).catch(error => {
+        //             console.error('Fetch error:', error);
+        //         }).finally(() => {
+        //         });
+        //     } else {
+        //         alert('You have required fields that are not filled out. Please complete them before submitting.');
+        //     }
+        // });
 
         function setRegisterData() {
             let registerData = localStorage.getItem('registerData');
