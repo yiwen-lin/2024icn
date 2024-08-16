@@ -432,20 +432,12 @@
 
         $('[name="country"]').on('change', event => {
             const target = $(event.target);
-            const participantTypeTarget = $('[name="participant_type"]');
+
             if (target.length === 0) {
                 return;
             }
 
-            const selectValue = target.val();
-            if (selectValue === '') {
-                return;
-            }
-
-            let data = {
-                country: selectValue
-            };
-            getCountryQuota(data);
+            getCountryQuota();
         });
 
         let form = document.getElementById('register');
@@ -485,12 +477,31 @@
                     } else if (response.status === 422) {
                         return response.json().then(errorData => {
                             let errorMessages = [];
-                            for (const [field, errors] of Object.entries(errorData.errors)) {
-                                errors.forEach(error => {
-                                    errorMessages.push(errors);
-                                    form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
-                                    console.error(`${field}: ${error}`);
-                                });
+
+                            // Validate
+                            if ("errors" in errorData) {
+                                for (const [field, errors] of Object.entries(errorData.errors)) {
+                                    errors.forEach(error => {
+                                        errorMessages.push(error);
+                                        form.querySelector(`[name="${field}"]`).parentNode.classList.add("error");
+
+                                        console.error(`${field}: ${error}`);
+                                    });
+                                }
+                            }
+
+                            // Participants: Out of quota.
+                            if ("message" in errorData) {
+                                const error = errorData.message;
+                                const outOfQuotaRegex = /^Out of quota for country\/.* participants\.$/;
+
+                                if (outOfQuotaRegex.test(error)) {
+                                    getCountryQuota();
+                                    errorMessages.push(error);
+                                    form.querySelector(`[name="participant_type"]`).parentNode.classList.add("error");
+
+                                    console.error(`participant_type: ${error}`);
+                                }
                             }
 
                             alert(errorMessages.join('\n'));
@@ -507,8 +518,8 @@
                 }).then((responseData) => {
                     alert('Success');
                     console.log('Success', responseData);
-                }).catch(error => {
-                    console.error('Fetch error:', error);
+                }).catch(() => {
+                    console.log('Fetch error');
                 }).finally(() => {
                 });
             } else {
@@ -607,6 +618,66 @@
             }
         }
 
+        function getCountryQuota() {
+            const target = $('[name="participant_type"]');
+            target.val('');
+            target.find(`option`).attr('disabled', true);
+
+            const selectCountryValue = $('[name="country"]').val();
+            if (selectCountryValue === '') {
+                target.find('option').forEach((element) => {
+                    element.attr('disabled', true);
+                });
+
+                return;
+            }
+
+            let data = {
+                country: selectCountryValue
+            };
+
+            fetch(GET_COUNTRY_QUOTA_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${BEARER_TOKEN}`
+                },
+                body: JSON.stringify(data)
+            }).then((response) => {
+                if (response.ok === true) {
+                    return response.json();
+                } else {
+                    return response.text().then(text => {
+                        throw new Error(response.statusText + ": " + text);
+                    });
+                }
+            }).then((responseData) => {
+                let isOpenAdditionalRegistration = false;
+
+                for (const [value, status] of Object.entries(responseData)) {
+                    if (status === false) {
+                        isOpenAdditionalRegistration = true;
+                        let targetOption = target.find(`option[value="${value}"]`);
+                        targetOption.attr('disabled', true);
+                    } else if (status === true) {
+                        let targetOption = target.find(`option[value="${value}"]`);
+                        targetOption.removeAttr('disabled');
+                    }
+                }
+
+                if (isOpenAdditionalRegistration === true) {
+                    target.find(`option[value="additional_registration"]`).removeAttr('disabled');
+                } else {
+                    target.find(`option[value="additional_registration"]`).attr('disabled', true);
+                }
+                console.log('Get Country Quota Success');
+            }).catch(() => {
+                console.log('Fetch error');
+            }).finally(() => {
+            });
+        }
+
         function getTourQuota() {
             const target = $('[name="social_events"]');
             if (target.length === 0) {
@@ -630,64 +701,27 @@
                 }
             }).then((responseData) => {
                 target.val('');
-                Object.keys(responseData).forEach((value) => {
-                    const status = responseData[value];
+                for (const [value, status] of Object.entries(responseData)) {
                     if (status === false) {
                         let targetOption = target.find(`option[value="${value}"]`);
                         targetOption.attr('disabled', true);
                     }
-                });
+                }
+                // Object.keys(responseData).forEach((value) => {
+                //     const status = responseData[value];
+                //     if (status === false) {
+                //         let targetOption = target.find(`option[value="${value}"]`);
+                //         targetOption.attr('disabled', true);
+                //     }
+                // });
                 console.log('Get Tour Quota Success');
-            }).catch(error => {
-                console.error('Fetch error:', error);
+            }).catch(() => {
+                console.log('Fetch error:');
             }).finally(() => {
             });
         }
 
-        function getCountryQuota(data) {
-            const target = $('[name="participant_type"]');
 
-            fetch(GET_COUNTRY_QUOTA_API_URL, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${BEARER_TOKEN}`
-                },
-                body: JSON.stringify(data)
-            }).then((response) => {
-                if (response.ok === true) {
-                    return response.json();
-                } else {
-                    return response.text().then(text => {
-                        throw new Error(response.statusText + ": " + text);
-                    });
-                }
-            }).then((responseData) => {
-                let isOpenAdditionalRegistration = false;
-
-                target.find(`option[value!="additional_registration"]`).removeAttr('disabled');
-                target.find(`option[value="additional_registration"]`).attr('disabled', true);
-
-                Object.keys(responseData).forEach((value) => {
-                    const status = responseData[value];
-
-                    if (status === false) {
-                        isOpenAdditionalRegistration = true;
-                        let targetOption = target.find(`option[value="${value}"]`);
-                        targetOption.attr('disabled', true);
-                    }
-                });
-
-                if (isOpenAdditionalRegistration === true) {
-                    target.find(`option[value="additional_registration"]`).removeAttr('disabled');
-                }
-                console.log('Get Country Quota Success');
-            }).catch(error => {
-                console.error('Fetch error:', error);
-            }).finally(() => {
-            });
-        }
     });
 </script>
 </body>
