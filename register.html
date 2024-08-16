@@ -516,7 +516,7 @@
                         });
                     }
                 }).then((responseData) => {
-                    alert('Success');
+                    alert(responseData.message);
                     console.log('Success', responseData);
                 }).catch(() => {
                     console.log('Fetch error');
@@ -707,13 +707,7 @@
                         targetOption.attr('disabled', true);
                     }
                 }
-                // Object.keys(responseData).forEach((value) => {
-                //     const status = responseData[value];
-                //     if (status === false) {
-                //         let targetOption = target.find(`option[value="${value}"]`);
-                //         targetOption.attr('disabled', true);
-                //     }
-                // });
+
                 console.log('Get Tour Quota Success');
             }).catch(() => {
                 console.log('Fetch error:');
