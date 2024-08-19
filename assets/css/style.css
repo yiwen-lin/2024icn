@@ -13986,6 +13986,16 @@ ol.ol-number li {
   text-align:center;
   /* margin-top:80px; */
 }
+
+
+.icn-bn {
+  max-height: 60px;
+  margin-right: 20px;
+  margin-left:3%;
+  padding-bottom: 17px;
+}
+
+
 @media screen and (max-width: 767px) {
   .icn-title-img {
     max-width:300px;
@@ -14028,6 +14038,9 @@ ol.ol-number li {
 .download-btn {
   display:flex;
   justify-content: center;
+}
+.download-btn a+a {
+  margin-left: 30px;
 }
 .download-btn i {
   margin-right:10px;
