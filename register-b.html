@@ -109,17 +109,18 @@
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Type of Participant​ *​</label>
                         <div class="from-box">
-                            <select id="select_participant" class="form-select" required name="participant_type">
+                            <select id="select_participant" class="form-control form-select required" name="participant_type">
                                 <option selected disabled value="">​</option>
                                 <option value="participant_nca">NCA (National Competition Authorities)</option>
                                 <option value="participant_nga">NGA (Non Governmental Advisors)</option>
+                                <option value="additional_registration">need additional registration</option>
                             </select>
                         </div>
                     </div>
                     <div id="nca_name_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>If NGA, name of authority and person that invited you.​ *</label>
                         <div class="from-box">
-                            <input type="text" placeholder="" class="form-control" name="nca_name">
+                            <input name="nca_name" class="required" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
@@ -429,21 +430,23 @@
             });
         }
 
-        function checkParticipantType(selectVal) {
+        function checkParticipantType(selectVal = '') {
+            // $('#nca_name_ipt').find('input').val('');
             if (selectVal === 'participant_nga') {
                 $('#nca_name_ipt').show();
                 $('#nca_name_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'participant_nca') {
+            } else {
                 $('#nca_name_ipt').hide();
                 $('#nca_name_ipt').find('input').removeClass('form-control');
             }
         }
 
         function checkDietType(selectVal) {
+            // $('#other_diet_ipt').find('input').val('');
             if (selectVal === 'other') {
                 $('#other_diet_ipt').show();
                 $('#other_diet_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'vegetarian' || selectVal === 'noneed') {
+            } else {
                 $('#other_diet_ipt').hide();
                 $('#other_diet_ipt').find('input').removeClass('form-control');
             }

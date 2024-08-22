@@ -432,6 +432,7 @@
         });
 
         $('[name="country"]').on('change', event => {
+            checkParticipantType();
             const target = $(event.target);
 
             if (target.length === 0) {
@@ -599,21 +600,23 @@
             });
         }
 
-        function checkParticipantType(selectVal) {
+        function checkParticipantType(selectVal = '') {
+            $('#nca_name_ipt').find('input').val('');
             if (selectVal === 'participant_nga') {
                 $('#nca_name_ipt').show();
                 $('#nca_name_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'participant_nca') {
+            } else {
                 $('#nca_name_ipt').hide();
                 $('#nca_name_ipt').find('input').removeClass('form-control');
             }
         }
 
         function checkDietType(selectVal) {
+            $('#other_diet_ipt').find('input').val('');
             if (selectVal === 'other') {
                 $('#other_diet_ipt').show();
                 $('#other_diet_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'vegetarian' || selectVal === 'noneed') {
+            } else {
                 $('#other_diet_ipt').hide();
                 $('#other_diet_ipt').find('input').removeClass('form-control');
             }
