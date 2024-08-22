@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div id="nca_name_ipt" class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
-                        <label>If NCA, name of authority and person that invited you.​ *</label>
+                        <label>If NGA, name of authority and person that invited you.​ *</label>
                         <div class="from-box">
                             <input type="text" placeholder="" class="form-control" name="nca_name">
                         </div>
@@ -134,13 +134,13 @@
                             <input type="text" placeholder="" class="form-control"  name="job_title">
                         </div>
                     </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
+                    <!-- <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Address​​ *​​</label>
                         <div class="from-box">
                             <input type="text" placeholder="" class="form-control" name="address">
                             <i class="icofont-location-pin"></i>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Jurisdiction​ *​​</label>
                         <div class="from-box">
@@ -148,7 +148,7 @@
                             <i class="icofont-globe"></i>
                         </div>
                     </div>
-                    <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
+                    <!-- <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Work Phone *​​</label>
                         <div class="from-box">
                             <input type="text" placeholder="" class="form-control" name="work_phone">
@@ -161,7 +161,7 @@
                             <input type="text" placeholder="" class="form-control" name="mobile_phone">
                             <i class="icofont-iphone"></i>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="single-form mb-20" data-aos="fade-up" data-aos-delay="200">
                         <label>Please enroll the welcome reception (11/12  18:00-21:00) *​</label>
                         <div class="from-box">
@@ -200,6 +200,7 @@
                             <select id="select_diet" class="form-control form-select required" name="special_services">
                                 <option selected disabled value="">​</option>
                                 <option value="vegetarian">Vegetarian</option>
+                                <option value="noneed">No need</option>
                                 <option value="other">Others:</option>
                             </select>
                         </div>
@@ -429,10 +430,10 @@
         }
 
         function checkParticipantType(selectVal) {
-            if (selectVal === 'participant_nca') {
+            if (selectVal === 'participant_nga') {
                 $('#nca_name_ipt').show();
                 $('#nca_name_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'participant_nga') {
+            } else if (selectVal === 'participant_nca') {
                 $('#nca_name_ipt').hide();
                 $('#nca_name_ipt').find('input').removeClass('form-control');
             }
@@ -442,7 +443,7 @@
             if (selectVal === 'other') {
                 $('#other_diet_ipt').show();
                 $('#other_diet_ipt').find('input').addClass('form-control');
-            } else if (selectVal === 'vegetarian') {
+            } else if (selectVal === 'vegetarian' || selectVal === 'noneed') {
                 $('#other_diet_ipt').hide();
                 $('#other_diet_ipt').find('input').removeClass('form-control');
             }
