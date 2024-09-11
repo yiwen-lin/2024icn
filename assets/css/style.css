@@ -14015,7 +14015,8 @@ ol.ol-number li {
   }
 }
 /* faq */
-.faq-body a {
+.faq-body a,
+.register-page .single-form a {
  color: var(--primary-txt);
 }
 
