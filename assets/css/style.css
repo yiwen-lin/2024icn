@@ -14061,7 +14061,9 @@ ol.ol-number li {
 }
 .Streaming-btn {
   margin-top:10px;
-  
+}
+.Streaming-btn i {
+  margin-right:8px;
 }
 
 /* popup  */
