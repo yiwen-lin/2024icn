@@ -14199,3 +14199,15 @@ ol.ol-number li {
     margin: 45% auto;
   }
 }
+
+.cloud-btn .btn{
+  background:#fff;
+  border:none;
+  border-bottom:1px solid #000;
+  border-radius: inherit;
+  color:#000;
+  margin:10px 20px;
+}
+.cloud-btn .btn:hover {
+  color:var(--primary-txt);
+}
